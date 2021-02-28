@@ -5,10 +5,10 @@ import numpy as np
 pattern = re.compile('(.*)"text": "(.*)"(.*)')
 
 def prepare_data(phase):
-    filename = './data/raw_data/' + phase + '_data'
-    sentence_outname = './data/sentence/' + phase + '_sentence.txt'
+    filename = './raw_data/' + phase + '_data'
+    sentence_outname = './sentence/' + phase + '_sentence.txt'
     if phase != 'test':
-        label_outname = './data/label/' + phase + '_label.npy'
+        label_outname = './label/' + phase + '_label.npy'
         label_out = []
     file = open(filename, 'r')
     sentence_out = open(sentence_outname, 'w')
