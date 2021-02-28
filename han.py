@@ -140,6 +140,8 @@ def build_model(embedding_matrix):
     model = Model(sentence_input, pred)
 
     model.summary()
+    
+    return model
 
 if __name__ == "__main__":
 
