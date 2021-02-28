@@ -47,7 +47,7 @@ def test():
         word_vector.append(model.wv[word])
     
     word_vector = np.array(word_vector)
-    np.save('./data/word vector/word_vector_new.npy', word_vector)
+    np.save('./word vector/word_vector_new.npy', word_vector)
     
 
     for phase in ['train', 'test', 'valid']:
