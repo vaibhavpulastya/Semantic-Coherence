@@ -3,13 +3,13 @@ from gensim.models import word2vec
 
 
 def train():
-    sentence = word2vec.LineSentence('./data/sentence/train_sentence.txt')
+    sentence = word2vec.LineSentence('./sentence/train_sentence.txt')
     model = word2vec.Word2Vec(sentences = sentence, min_count = 3, window=10)
     model.save('./model/word2vec_new.model')
 
 def inference_(phase):
     model = word2vec.Word2Vec.load('./model/word2vec_new.model')
-    filename = './data/sentence/' + phase + '_sentence.txt'
+    filename = './sentence/' + phase + '_sentence.txt'
     file = open(filename, 'r')
     array = []
     
@@ -31,7 +31,7 @@ def inference_(phase):
     array = np.array(array)
     print(array.shape)    
     file.close()
-    savename = './data/embedding vector/' + phase + '_new_vec.npy'
+    savename = './embedding vector/' + phase + '_new_vec.npy'
     np.save(savename, array)
 
 def test():
@@ -51,7 +51,7 @@ def test():
     
 
     for phase in ['train', 'test', 'valid']:
-        filename = './data/sentence/' + phase + '_sentence.txt'
+        filename = './sentence/' + phase + '_sentence.txt'
         file = open(filename, 'r')
         index = []
         linecount = 0
@@ -74,7 +74,7 @@ def test():
 
         index = np.array(index)
         print(index.shape)
-        savename = './data/word vector/' + phase + '_index_new.npy'
+        savename = './word vector/' + phase + '_index_new.npy'
         np.save(savename, index)
 
 if __name__ == "__main__":
@@ -84,8 +84,8 @@ if __name__ == "__main__":
         inference_(phase)
     test()
     
-    train_label = np.load('./data/label/train_label.npy')
-    val_label = np.load('./data/label/valid_label.npy')
+    train_label = np.load('./label/train_label.npy')
+    val_label = np.load('./label/valid_label.npy')
     
     train_len = len(train_label)
     val_len = len(val_label)
