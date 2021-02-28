@@ -145,13 +145,13 @@ if __name__ == "__main__":
 
     history = LossHistory()
 
-    X_train = np.load('./data/word vector/train_index_new.npy')
-    Y_train = np.load('./data/label/train_label.npy')
-    X_val = np.load('./data/word vector/valid_index_new.npy')
-    Y_val = np.load('./data/label/valid_label.npy')
+    X_train = np.load('./word vector/train_index_new.npy')
+    Y_train = np.load('./label/train_label.npy')
+    X_val = np.load('./word vector/valid_index_new.npy')
+    Y_val = np.load('./label/valid_label.npy')
     X_train = np.expand_dims(X_train, axis=1)
     X_val = np.expand_dims(X_val, axis=1)
-    embedding_matrix = np.load('./data/word vector/word_vector_new.npy')
+    embedding_matrix = np.load('./word vector/word_vector_new.npy')
 
     model = build_model(embedding_matrix)
 
